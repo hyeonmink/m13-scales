@@ -146,4 +146,10 @@ $(function() {
                 return drawHeight - yScale(d.percent);
             });
     });
+            var button = document.getElementById('option1')
+        button.addEventListener('click', function(e) {
+            console.log('click!')});
+
 });
+
+
