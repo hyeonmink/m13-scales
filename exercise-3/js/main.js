@@ -131,7 +131,7 @@ $(function() {
             // Store the data-join in a function: make sure to set the scales and update the axes in your function.
             // Select all rects and bind data
             var bars = g.selectAll('rect').data(data);
-
+            bars.selectAll('rect').remove()
             // Use the .enter() method to get your entering elements, and assign initial positions
             bars.enter().append('rect')
                 .attr('x', function(d) {
@@ -148,25 +148,13 @@ $(function() {
                     return drawHeight - yScale(d.percent);
                 });
             }
-        
         draw(error, allData);    
         $("input").on('change', function() {
             // Get value, determine if it is the sex or type controller
             var val = $(this).val();
             ($(this).hasClass('sex')) ? sex = val : type = val
             draw(error, allData)
-
-            // // Filter data, update chart
-            // var currentData = filterData();
-            // draw(currentData);
         });
-
-        // Filter data to the current settings then draw
-        // var currentData = filterData();
-        // draw(currentData);
-
-
-
     });
 });
 
